@@ -8,10 +8,11 @@ from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 from src.prompt import *
 import os
+from dotenv import find_dotenv
 
 app = Flask(__name__)
 
-load_dotenv()
+load_dotenv(find_dotenv())
 
 PINECONE_API_KEY=os.environ.get('PINECONE_API_KEY')
 GROQ_API_KEY=os.environ.get('GROQ_API_KEY')
@@ -34,7 +35,7 @@ retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":
 
 llm = ChatOpenAI(
     model="llama3-8b-8192",
-    openai_api_base="https://api.groq.com/openai/v1",
+    # openai_api_base="https://api.groq.com/openai/v1",
     openai_api_key=GROQ_API_KEY,
 )
 
