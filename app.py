@@ -35,7 +35,7 @@ retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":
 
 llm = ChatOpenAI(
     model="llama3-8b-8192",
-    # openai_api_base="https://api.groq.com/openai/v1",
+    openai_api_base="https://api.groq.com/openai/v1",
     openai_api_key=GROQ_API_KEY,
 )
 
