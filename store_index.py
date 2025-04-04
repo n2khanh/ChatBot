@@ -19,12 +19,12 @@ embeddings = download_hugging_face_embeddings()
 
 pc = Pinecone(api_key=PINECONE_API_KEY)
 
-index_name = "medicalbot"
+index_name = "medicalbotvietnamese"
 
 
 pc.create_index(
     name=index_name,
-    dimension=384, 
+    dimension=768, 
     metric="cosine", 
     spec=ServerlessSpec(
         cloud="aws", 

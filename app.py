@@ -22,7 +22,7 @@ os.environ["GROQ_API_KEY"] = GROQ_API_KEY
 
 embeddings = download_hugging_face_embeddings()
 
-index_name = "medicalbot"
+index_name = "medicalbotvietnamese"
 
 
 # Embed each chunk and upsert the embeddings into your Pinecone index.
@@ -31,10 +31,10 @@ docsearch = PineconeVectorStore.from_existing_index(
     embedding=embeddings
 )
 
-retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":3})
+retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":5})
 
 llm = ChatOpenAI(
-    model="llama3-8b-8192",
+    model="llama-3.3-70b-versatile",
     openai_api_base="https://api.groq.com/openai/v1",
     openai_api_key=GROQ_API_KEY,
 )
