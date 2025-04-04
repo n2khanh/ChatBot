@@ -21,5 +21,5 @@ def text_split(extracted_data):
 
 #Download the Embeddings from Hugging Face
 def download_hugging_face_embeddings():
-    embeddings=HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
+    embeddings=HuggingFaceEmbeddings(model_name='dangvantuan/vietnamese-document-embedding', model_kwargs={"trust_remote_code": True})
     return embeddings
